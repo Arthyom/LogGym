@@ -1,0 +1,96 @@
+REGLAS DE LA EMPRESA: GOOD GYM
+
+	RQNF
+		el sistema debe ser una aplicacion de escritorio
+		el sistema debe iniciar rapido (que es rapido?)
+		el sistema debe apagarse rapido (que es rapido?)
+		el sistema debe guardar la informacion del negocio
+		el sistema debe asegurar el acceso solo al personal autorizado
+		el sistema debe tener elementos de respuesta a fallos durante el registro
+		las notificaciones del sistema deben de ser confiables 
+		los precios del sistema deben de ser confiables
+		
+		el registro de entrada de personal debe realizarse rapido
+		el registro de salida  del personal debe realizarse rapido
+		dl registro de entrada de cliente debe realizarse rapido
+		el registro de salida  del cliente debe realizarse rapido
+			*** cuando dura lo rapido???
+		
+		el sistema no debe estar conectado a internet
+		el sistema no debe realizar tranzaciones via internet
+		el sistema no debe realizar tranzaciones con otros sistemas
+		
+		
+	
+
+1.-El resepcionista de la mañana debe entrar a las 6 y salir a las 2
+	* se debe registrar la hora de llegada del recepcionista
+	* se debe registrar la hora de salida  del recepcionista
+	* el sistema no debe interferir con la actividad de los clientes
+
+2.- El que se encarga de la limpieza y de la recepcion de 2 a 3 entra a las 8 y sale a las 3
+	(¿) es pertinente que el de la limpieza interactue con el sistema
+	* se debe registrar la hora de la llegada del conserge
+	* se debe registrar la hora de la salida del conserge
+
+3.- El encargado de recepcion del turno vespertino entra a las 3 y sale a las 10
+
+4.- Unicamente existen 4 personas que pueden vender los productos (Administrador, Recepcionista de 6 Am a 2 Pm, Limpieza de 2 Pm a 3 Pm y Recepcionista de 3 Pm a 10 Pm)
+	* el sistema debe permitir la venta de productos propios del negocio
+	* solo 2 roles pueden realizar transacciones sobre el sistema
+	* el administrador debe poder realizar transacciones en el sistema 	
+	* el recepcioniste debe poder realizar transacciones en el sistema
+
+5.- El encargado de limpieza debe entregar todo acomodado (Mancuernas en su lugar, aguas en recepcion, Barrido, Trapeado... etc)
+	(¿) es pertinente registrar esta actividad en el sistema?
+
+5.- Las proteinas se venden por medida, según el escop es como se le asignara un precio fijo a cada medida, asiendo un balanceo entre el costo base de la proteina y el numero de medidas ntegradas, para que se le gane aproximadamente entre 5 y 10 pesos a cada Scop
+
+6.- Las aguas de Litro a 10 y las de Litro y medio a 13 (presios ajustrables al proveedor)
+	* el sistema debe permitir moficiar el precio de las aguas 
+	* el sistema debe permitir ajustar la informacion del proveedor
+
+7.- El gatorade de 600 ml es a 18 y el de Litro a 23 (Presios ajustables al proveedor)
+	* el sistema debe permitir moficiar el precio de las aguas 
+	* el sistema debe permitir ajustar la informacion del proveedor
+
+8.- El administrador y dueño del gymnacio sera el unico que podra eliminar algun cliente de la base de datos al igual que la administracion de los empleados
+	(?) que diferencia existe entre administrador y dueño
+	(?) son estos la misma persona
+	*   el sistema debe permitir que el administrador y solo el administrador eliminen personal 
+
+9.- Cualquiera de los 4 usuarios que interactuaran con el sistema podra administrar a los clientes del gimnacio exepto la parte de eliminar aclarda en el punto 8
+	* los recepcionistas solo no pueden realizar transacciones de eliminacion
+	* los recepcionistas pueden realizar operaciones de tranzaciones que no sean de eliminacion
+					(¿) que operaciones de tranzacion 
+
+10.- Si el cliente se le llega la fecha de vencimiento de la mensualidad se le da de tolerancia 2 dias para quese ponga al corriente, de lo contrario se le hace un recordatorio, al transcurrir 1 semana sin tener respuesta del cliente atumaticamente se le da de baja y se le niega la entrada al susodicho
+	* el sistema debe registrar la entrada de los clientes
+	* el sistema debe verificar la vigencia de la membresia de los clientes
+	* el sistema debe notificar al personal administrativo el vencimiento de la membresia de un cliente
+	* el sistema debe notificar al cliente el vencimiento de su membresia
+	* el sistema debe permitir el acceso al cliente el acceso a las instalaciones aun despues de una semana de vencimiento de su membresia
+	* el sistema debe notificar con mayor severidad al cliente el vencimiento de su membresia 
+	* el sistema debe notificar con mayor severidad al personal administrativo el vencimiento de la membresia de un cliente 
+       (¿) que haces con la informacion? : registro, almacenamiento, desecho?
+
+11.- El presio de la mensualidad general es 350 y estudiantes 300
+	* el sistema debe cobrar 350 por una membresia normal
+	* el sistema debe cobrar 300 por una membresia de estudiante
+	
+
+12.- La mensualidad comienza a transcurrir apartir del dia en que se pago
+	* el sistema debe contar el periodo de membresia desde el dia en que esta es pagada
+
+13.- Para validar que estan estudiando, los estudiantes deben presentar su credencial universitaria vigente
+
+14.- Niguna persona agena al personal de trabajo puede entrar al area interna de recepcion
+	* el sistema solo debe brindar informacion al personal administrativo
+
+15.- Los clientes deben llevar tualla para su aseo personal y limpiar los aparatos despues de usarlos
+16.- Se permite un maximo de 40 minutos por persona en el area de cardio
+17.- Los clientes deben colocar las mancuernas y barras en su lugar una vez terminada la actividad fisica.
+
+18.- Los clientes deben registrar su entrada cada dia que asistan al gimnacio.
+	* el sistema debe registrar la entrada de los clientes
+	* el sistema debe registrar la salida de los clientes
