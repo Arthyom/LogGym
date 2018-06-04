@@ -18,7 +18,7 @@ namespace ProyectoLogGym
             Application.SetCompatibleTextRenderingDefault(false);
             try
             {
-                Application.Run(new ComponenteSeguridadLogueo());
+                Application.Run(new Form1());
             }
             catch(InvalidOperationException ex)
             {

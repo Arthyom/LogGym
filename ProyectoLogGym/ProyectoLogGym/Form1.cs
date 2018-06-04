@@ -99,10 +99,7 @@ namespace ProyectoLogGym
 
                 // leer el codigo
                 string[] resultado = BarcodeLib.BarcodeReader.BarcodeReader.read(img, BarcodeLib.BarcodeReader.BarcodeReader.QRCODE);
-                string   res = resultado[0];
-                string[] sli = res.Split(' ');
-                    
-              
+                              
                 // quitar la imagen de la memoria
                 img.Dispose();
 
@@ -111,14 +108,22 @@ namespace ProyectoLogGym
                 {
                     if (resultado.Length != 3)
                     {
-                        
-                        
+                        string res = resultado[0];
+                        string[] sli = res.Split(' ');
+
+
+
                         // crear una consulta para buscar nombre e identificador
                         string orden = " WHERE `Nombre del usuario`='" + sli[0] + "' and Contrasena ='" + sli[1] + "'";
                     }
                     
                 }
             }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
