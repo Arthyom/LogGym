@@ -36,8 +36,9 @@ ENGINE = InnoDB;
 
 
 
-
-
+INSERT INTO Inventario (Nombre del producto, Cantidad en almacen, Fecha de reeprovicionar) VALUES ('Way Protein','3',"2018-06-01");
+INSERT INTO Inventario (Nombre del producto, Cantidad en almacen, Fecha de reeprovicionar) VALUES ('Gaytorade 600 ml','30',"2018-05-01");
+INSERT INTO Inventario (Nombre del producto, Cantidad en almacen, Fecha de reeprovicionar) VALUES ('Glutamina rouney','6',"2018-06-02");
 -- -----------------------------------------------------
 
 -- Table `mydb`.`Productos`
@@ -70,8 +71,11 @@ CREATE  TABLE IF NOT EXISTS `mydb`.`Productos` (
 
 ENGINE = InnoDB;
 
+INSERT INTO Productos (Nombre del producto, Presio del producto) VALUES ('Way Protein','1200');
 
+INSERT INTO Productos (Nombre del producto, Presio del producto) VALUES ('Gaytorade 600 ml','18');
 
+INSERT INTO Productos (Nombre del producto, Presio del producto) VALUES ('Chochitos','3000');
 
 
 -- -----------------------------------------------------
@@ -94,6 +98,9 @@ CREATE  TABLE IF NOT EXISTS `mydb`.`Usuarios` (
 
 ENGINE = InnoDB;
 
+INSERT INTO Usuarios (Nombre del empleadoo, Horario de trabajo, Ocupcion) VALUES ('Juan Carlos AD','Lun-Vier 8 Am a 3 Pm', "Instructor");
+INSERT INTO Usuarios (Nombre del empleadoo, Horario de trabajo, Ocupcion) VALUES ('Bernardo QG','Lun-Vier 8 Am a 3 Pm', "Barrendero");
+INSERT INTO Usuarios (Nombre del empleadoo, Horario de trabajo, Ocupcion) VALUES ('Alfredo GG','Lun-Vier 8 Am a 3 Pm', "Tecnico");
 
 
 
@@ -106,9 +113,7 @@ ENGINE = InnoDB;
 
 CREATE  TABLE IF NOT EXISTS `mydb`.`Venta` (
 
-  `IdProducto` INT NOT NULL AUTO_INCREMENT,
-
-  `IdVenta` INT NOT NULL ,
+  `IdVenta` INT NOT NULL AUTO_INCREMENT,
 
   `Nombre del producto` VARCHAR(45) NOT NULL ,
 
@@ -118,7 +123,7 @@ CREATE  TABLE IF NOT EXISTS `mydb`.`Venta` (
 
   `Empleados_IdEmpleado` INT NOT NULL ,
 
-  PRIMARY KEY (`IdProducto`) ,
+  PRIMARY KEY (`IdVenta`) ,
 
   INDEX `fk_Venta_Empleados_idx` (`Empleados_IdEmpleado` ASC) ,
 
@@ -134,8 +139,9 @@ CREATE  TABLE IF NOT EXISTS `mydb`.`Venta` (
 
 ENGINE = InnoDB;
 
-
-
+INSERT INTO Venta (Nombre del producto, Cantidad, Fecha ) VALUES ('Agua 600 ml','1', "2018-06-02");
+INSERT INTO Venta (Nombre del producto, Cantidad, Fecha ) VALUES ('Gaytore 600 ml','1', "2018-06-02");
+INSERT INTO Venta (Nombre del producto, Cantidad, Fecha ) VALUES ('Medida de prote','1', "2018-06-02");
 
 
 /*-- -----------------------------------------------------
@@ -194,7 +200,7 @@ CREATE  TABLE IF NOT EXISTS `mydb`.`Clientes` (
 
   `Nombre del cliente` VARCHAR(45) NOT NULL ,
 
-  `Tipo de pago (Estudiante o normal)` VARCHAR(45) NULL ,
+  `Tipo de pago` VARCHAR(45) NULL ,
 
   `Monto que se le cobra` INT NULL ,
 
@@ -220,7 +226,11 @@ CREATE  TABLE IF NOT EXISTS `mydb`.`Clientes` (
 
 ENGINE = InnoDB;
 
+INSERT INTO Clientes (Nombre del cliente, Tipo de pago, Monto que se le cobra, Fecha de ingreso ) VALUES ('Luis Gurra','Normal', "350", "2018-02-02");
 
+INSERT INTO Clientes (Nombre del cliente, Tipo de pago, Monto que se le cobra, Fecha de ingreso ) VALUES ('Angela Martinez','Estudiante', "300", "2018-05-09");
+
+INSERT INTO Clientes (Nombre del cliente, Tipo de pago, Monto que se le cobra, Fecha de ingreso ) VALUES ('Jose pepito','Normal', "350", "2018-04-12");
 
 
 
@@ -273,6 +283,9 @@ CREATE  TABLE IF NOT EXISTS `mydb`.`Cobro de mensualidad` (
 ENGINE = InnoDB;
 
 
+INSERT INTO Cobro de mensualidad (Nombre del cliente, Monto del pago, Fecha del pago ) VALUES ('Jose pepito', "350", "2018-04-12");
+INSERT INTO Cobro de mensualidad (Nombre del cliente, Monto del pago, Fecha del pago ) VALUES ('Angela Martinez', "300", "2018-05-12");
+INSERT INTO Cobro de mensualidad (Nombre del cliente, Monto del pago, Fecha del pago ) VALUES ('Luis Gerra', "350", "2018-05-02");
 
 
 
@@ -308,7 +321,9 @@ CREATE  TABLE IF NOT EXISTS `mydb`.`Login` (
 
 ENGINE = InnoDB;
 
-
+INSERT INTO Login (Password, Nombre del usuario ) VALUES ('12345', "Juan Carlos AD");
+INSERT INTO Login (Password, Nombre del usuario ) VALUES ('67890', "Bernardo QG");
+INSERT INTO Login (Password, Nombre del usuario ) VALUES ('12345', "Alfredo GG");
 /*-- -----------------------------------------------------
 
 -- Table `mysql`.`columns_priv`
