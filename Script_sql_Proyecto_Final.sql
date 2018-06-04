@@ -1,5 +1,13 @@
+﻿/*SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';*/
+
+
 CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
 
+/*CREATE SCHEMA IF NOT EXISTS `information_schema` DEFAULT CHARACTER SET utf8 ;*/
 CREATE SCHEMA IF NOT EXISTS `login` DEFAULT CHARACTER SET utf8 ;
 
 CREATE SCHEMA IF NOT EXISTS `mysql` DEFAULT CHARACTER SET utf8 ;
@@ -14,13 +22,13 @@ CREATE SCHEMA IF NOT EXISTS `mysql` DEFAULT CHARACTER SET utf8 ;
 
 CREATE  TABLE IF NOT EXISTS `mydb`.`Inventario` (
 
-  `IdProducto` INT NOT NULL AUTO_INCREMENT,
+  `IdProducto` INT NOT NULL ,
 
-  `Nombre_del_producto` VARCHAR(45) NULL ,
+  `Nombre del producto` VARCHAR(45) NULL ,
 
-  `Cantidad_en_almacen` VARCHAR(45) NULL ,
+  `Cantidad en almacen` VARCHAR(45) NULL ,
 
-  `Fecha_de_reeprovicionar` DATE NULL ,
+  `Fecha de reeprovicionar` DATE NULL ,
 
   PRIMARY KEY (`IdProducto`) )
 
@@ -40,9 +48,9 @@ CREATE  TABLE IF NOT EXISTS `mydb`.`Productos` (
 
   `IdProducto` INT NOT NULL AUTO_INCREMENT,
 
-  `Nombre_del_producto` VARCHAR(45) NULL ,
+  `Nombre del producto` VARCHAR(45) NULL ,
 
-  `Presio_del_producto` INT NULL ,
+  `Presio del producto` INT NULL ,
 
   `Inventario_IdProducto` INT NOT NULL ,
 
@@ -76,9 +84,9 @@ CREATE  TABLE IF NOT EXISTS `mydb`.`Usuarios` (
 
   `IdEmpleado` INT NOT NULL AUTO_INCREMENT,
 
-  `Nombre_del_empleado` VARCHAR(45) NOT NULL ,
+  `Nombre del empleado` VARCHAR(45) NOT NULL ,
 
-  `Horario_de_trabajo` VARCHAR(45) NULL ,
+  `Horario de trabajo` VARCHAR(45) NULL ,
 
   `Ocupación` VARCHAR(45) NULL ,
 
@@ -98,7 +106,9 @@ ENGINE = InnoDB;
 
 CREATE  TABLE IF NOT EXISTS `mydb`.`Venta` (
 
-  `IdVenta` INT NOT NULL AUTO_INCREMENT,
+  `IdProducto` INT NOT NULL AUTO_INCREMENT,
+
+  `IdVenta` INT NOT NULL ,
 
   `Nombre del producto` VARCHAR(45) NOT NULL ,
 
@@ -108,7 +118,7 @@ CREATE  TABLE IF NOT EXISTS `mydb`.`Venta` (
 
   `Empleados_IdEmpleado` INT NOT NULL ,
 
-  PRIMARY KEY (`IdVenta`) ,
+  PRIMARY KEY (`IdProducto`) ,
 
   INDEX `fk_Venta_Empleados_idx` (`Empleados_IdEmpleado` ASC) ,
 
@@ -128,7 +138,7 @@ ENGINE = InnoDB;
 
 
 
--- -----------------------------------------------------
+/*-- -----------------------------------------------------
 
 -- Table `mydb`.`Venta_has_Productos`
 
@@ -166,7 +176,7 @@ CREATE  TABLE IF NOT EXISTS `mydb`.`Venta_has_Productos` (
 
     ON UPDATE NO ACTION)
 
-ENGINE = InnoDB;
+ENGINE = InnoDB;*/
 
 
 
@@ -180,15 +190,15 @@ ENGINE = InnoDB;
 
 CREATE  TABLE IF NOT EXISTS `mydb`.`Clientes` (
 
-  `idCliente` INT NOT NULL ,
+  `idCliente` INT NOT NULL AUTO_INCREMENT,
 
-  `Nombre_del_cliente` VARCHAR(45) NOT NULL ,
+  `Nombre del cliente` VARCHAR(45) NOT NULL ,
 
-  `Tipo_de_pago` VARCHAR(45) NULL ,
+  `Tipo de pago (Estudiante o normal)` VARCHAR(45) NULL ,
 
-  `Monto_a_cobrar` INT NULL ,
+  `Monto que se le cobra` INT NULL ,
 
-  `Fecha_de_ingreso` DATE NULL ,
+  `Fecha de ingreso` DATE NULL ,
 
   `Venta_has_Productos_Venta_IdProducto` INT NOT NULL ,
 
@@ -222,13 +232,13 @@ ENGINE = InnoDB;
 
 CREATE  TABLE IF NOT EXISTS `mydb`.`Cobro de mensualidad` (
 
-  `IdPago` INT NOT NULL ,
+  `IdPago` INT NOT NULL AUTO_INCREMENT,
 
-  `Nombre_del_cliente` VARCHAR(45) NOT NULL ,
+  `Nombre del cliente` VARCHAR(45) NOT NULL ,
 
-  `Monto_del_pago` INT NULL ,
+  `Monto del pago` INT NULL ,
 
-  `Fecha_del_pago` DATE NULL ,
+  `Fecha del pago` DATE NULL ,
 
   `Empleados_IdEmpleado` INT NOT NULL ,
 
@@ -250,7 +260,7 @@ CREATE  TABLE IF NOT EXISTS `mydb`.`Cobro de mensualidad` (
 
     ON UPDATE NO ACTION,
 
-  CONSTRAINT `fk_Cobrde mensualidad_Clientes1`
+  CONSTRAINT `fk_Cobro de mensualidad_Clientes1`
 
     FOREIGN KEY (`Clientes_idCliente` )
 
@@ -274,11 +284,11 @@ ENGINE = InnoDB;
 
 CREATE  TABLE IF NOT EXISTS `mydb`.`Login` (
 
-  `IdEmpleados` INT NOT NULL ,
+  `IdEmpleados` INT NOT NULL AUTO_INCREMENT,
 
   `Password` VARCHAR(45) NULL ,
 
-  `Nombre_del_usuario` VARCHAR(45) NULL ,
+  `Nombre del usuario` VARCHAR(45) NULL ,
 
   `Usuarios_IdEmpleado` INT NOT NULL ,
 
@@ -299,7 +309,7 @@ CREATE  TABLE IF NOT EXISTS `mydb`.`Login` (
 ENGINE = InnoDB;
 
 
--- -----------------------------------------------------
+/*-- -----------------------------------------------------
 
 -- Table `mysql`.`columns_priv`
 
@@ -329,7 +339,7 @@ DEFAULT CHARACTER SET = utf8
 
 COLLATE = utf8_bin
 
-COMMENT = 'Column privileges';
+COMMENT = 'Column privileges';*/
 
 
 
@@ -341,7 +351,7 @@ COMMENT = 'Column privileges';
 
 -- -----------------------------------------------------
 
-CREATE  TABLE IF NOT EXISTS `mysql`.`db` (
+/*CREATE  TABLE IF NOT EXISTS `mysql`.`db` (
 
   `Host` CHAR(60) CHARACTER SET 'utf8' COLLATE 'utf8_bin' NOT NULL DEFAULT '' ,
 
@@ -1297,7 +1307,7 @@ DEFAULT CHARACTER SET = utf8
 
 COLLATE = utf8_bin
 
-COMMENT = 'Users and global privileges';
+COMMENT = 'Users and global privileges';*/
 
 USE `mydb` ;
 
