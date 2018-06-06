@@ -74,7 +74,7 @@ namespace ProyectoLogGym
 
         public void llenarGridV(string tableName, DataGridView DG )
         {
-            string Consulta = "SELECT * FROM " + tableName +  "; ";
+            string Consulta = "SELECT Nombre del producto, Cantidad en almacen FROM " + tableName +  "; ";
             this.comando = new MySqlCommand(Consulta, this.conexionConServidor);
             MySqlDataAdapter da = new MySqlDataAdapter(comando);
             DataTable dt = new DataTable();

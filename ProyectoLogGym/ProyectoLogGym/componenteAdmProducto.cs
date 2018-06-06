@@ -18,6 +18,10 @@ namespace ProyectoLogGym
         public componenteAdmProducto()
         {
             InitializeComponent();
+
+            dataGridView1.SelectionChanged += (ss, ee) => {
+                txtNombreDel.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value.ToString();
+            };
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
