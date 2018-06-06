@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
 namespace ProyectoLogGym
@@ -53,7 +55,32 @@ namespace ProyectoLogGym
             MySqlDataReader lector = this.comando.ExecuteReader();
             return lector;
         }
+        public int ConsultaGuardar(string tableName, string consulta)
+        {
+            string Consulta = "INSERT INTO "+ tableName + " "+consulta;
+            this.comando = new MySqlCommand(Consulta, this.conexionConServidor);
+            return this.comando.ExecuteNonQuery();
 
+        }
+
+        public void ConsultaEliminar(string tableName, string condicion)
+        {
+            string Consulta = "DELETE FROM  "+tableName+" WHERE "+condicion+";";
+            this.comando = new MySqlCommand(Consulta, this.conexionConServidor);
+
+            this.comando.ExecuteNonQuery();
+            
+        }
+
+        public void llenarGridV(string tableName, DataGridView DG )
+        {
+            string Consulta = "SELECT * FROM " + tableName +  "; ";
+            this.comando = new MySqlCommand(Consulta, this.conexionConServidor);
+            MySqlDataAdapter da = new MySqlDataAdapter(comando);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            DG.DataSource = dt;
+        }
 
 
     }

@@ -11,8 +11,8 @@ using System.Windows.Forms;
 using Gma.QrCodeNet.Encoding;
 using Gma.QrCodeNet.Encoding.Windows.Render;
 
-using AForge.Video;
-using AForge.Video.DirectShow;
+//using AForge.Video;
+//using AForge.Video.DirectShow;
 
 using BarcodeLib.BarcodeReader;
 
@@ -25,16 +25,17 @@ namespace ProyectoLogGym
 {
     public partial class Form1 : Form
     {
-        private FilterInfoCollection DispositivosVideo;
-        private VideoCaptureDevice VideoFinal;
+       // private FilterInfoCollection DispositivosVideo;
+        //private VideoCaptureDevice VideoFinal;
 
-        private Conexion conActual = new Conexion("localhosto", "3306", "root", "", "mydb");
+        private Conexion conActual = new Conexion("localhost", "3306", "root", "", "mydb");
        
         
 
         public Form1()
         {
             InitializeComponent();
+            tabPage1.Controls.Add(new componenteAdmProducto());
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -45,8 +46,8 @@ namespace ProyectoLogGym
         private void Form1_Load(object sender, EventArgs e)
         {
             // preparar para capturar video 
-            this.DispositivosVideo = new FilterInfoCollection(FilterCategory.VideoInputDevice);
-            this.VideoFinal        = new VideoCaptureDevice();
+          //  this.DispositivosVideo = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+           // this.VideoFinal        = new VideoCaptureDevice();
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
@@ -57,7 +58,7 @@ namespace ProyectoLogGym
         // cuando el formulario se este cerrando
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (this.VideoFinal.IsRunning == true) this.VideoFinal.Stop();
+           // if (this.VideoFinal.IsRunning == true) this.VideoFinal.Stop();
             Application.Exit();
         }
 
@@ -70,6 +71,7 @@ namespace ProyectoLogGym
         //iniciar/terminar grabacion
         private void button1_Click(object sender, EventArgs e)
         {
+            /*
             if (this.VideoFinal.IsRunning == true)
             {
                 this.timer1.Enabled = false;
@@ -84,7 +86,7 @@ namespace ProyectoLogGym
             timer1.Enabled = true;
             this.VideoFinal = new VideoCaptureDevice(this.DispositivosVideo[0].MonikerString);
             this.videoSourcePlayer2.VideoSource = this.VideoFinal;
-            this.videoSourcePlayer2.Start();
+            this.videoSourcePlayer2.Start();*/
         }
 
   

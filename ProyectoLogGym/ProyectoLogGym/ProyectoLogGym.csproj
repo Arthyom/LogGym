@@ -44,8 +44,8 @@
     <Reference Include="AForge.Math">
       <HintPath>..\packages\AForge.2.2.5\lib\AForge.Math.dll</HintPath>
     </Reference>
-    <Reference Include="AForge.Video">
-      <HintPath>..\packages\AForge.2.2.5\lib\AForge.Video.dll</HintPath>
+    <Reference Include="AForge.Video, Version=2.2.5.0, Culture=neutral, PublicKeyToken=cbfb6e07d173c401, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.Video.2.2.5\lib\AForge.Video.dll</HintPath>
     </Reference>
     <Reference Include="AForge.Video.DirectShow">
       <HintPath>..\packages\AForge.2.2.5\lib\AForge.Video.DirectShow.dll</HintPath>
@@ -53,17 +53,30 @@
     <Reference Include="BarcodeLib.BarcodeReader">
       <HintPath>..\packages\BarcodeLib_NETBarcodeReader_Trial\BarcodeLib.BarcodeReader.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Gma.QrCodeNet.Encoding, Version=0.4.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\QrCode.Net.0.4.0.0\lib\net45\Gma.QrCodeNet.Encoding.dll</HintPath>
     </Reference>
-    <Reference Include="MySql.Data, Version=8.0.11.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="Google.Protobuf, Version=3.5.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.5.1\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.0.11.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.11\lib\net452\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -81,6 +94,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="componenteAdmProducto.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="componenteAdmProducto.Designer.cs">
+      <DependentUpon>componenteAdmProducto.cs</DependentUpon>
+    </Compile>
     <Compile Include="ComponenteDeNotificacionAdministrador.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +121,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="componenteAdmProducto.resx">
+      <DependentUpon>componenteAdmProducto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ComponenteDeNotificacionAdministrador.resx">
       <DependentUpon>ComponenteDeNotificacionAdministrador.cs</DependentUpon>
     </EmbeddedResource>
