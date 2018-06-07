@@ -45,8 +45,8 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `mydb`.`Usuarios` (
   `IdEmpleado` INT NOT NULL AUTO_INCREMENT,
   `Nombre_empleado` VARCHAR(45) NOT NULL,
-  `Horario de trabajo` VARCHAR(45) NULL,
-  `Ocupación` VARCHAR(45) NULL,
+  `Horario_trabajo` VARCHAR(45) NULL,
+  `Ocupacion` VARCHAR(45) NULL,
   PRIMARY KEY (`IdEmpleado`))
 ENGINE = InnoDB;
 
@@ -57,7 +57,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `mydb`.`Venta` (
   `IdProducto` INT NOT NULL,
   `IdVenta` INT NOT NULL,
-  `Nombre del producto` VARCHAR(45) NOT NULL,
+  `Nombre_producto` VARCHAR(45) NOT NULL,
   `Cantidad` INT NULL,
   `Fecha` DATE NULL,
   `Empleados_IdEmpleado` INT NOT NULL,
@@ -101,7 +101,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Clientes` (
   `Nombre_cliente` VARCHAR(45) NOT NULL,
   `Tipo_pago` VARCHAR(45) NULL,
   `MontoAcobrar` INT NULL,
-  `Fecha de ingreso` DATE NULL,
+  `Fecha_ingreso` DATE NULL,
   `Venta_has_Productos_Venta_IdProducto` INT NOT NULL,
   `Venta_has_Productos_Productos_IdProducto` INT NOT NULL,
   PRIMARY KEY (`idCliente`, `Venta_has_Productos_Venta_IdProducto`, `Venta_has_Productos_Productos_IdProducto`),
@@ -117,11 +117,11 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`Cobro de mensualidad`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Cobro de mensualidad` (
+CREATE TABLE IF NOT EXISTS `mydb`.`Cobro_mensualidad` (
   `IdPago` INT NOT NULL,
-  `Nombre del cliente` VARCHAR(45) NOT NULL,
-  `Monto del pago` INT NULL,
-  `Fecha del pago` DATE NULL,
+  `Nombre_cliente` VARCHAR(45) NOT NULL,
+  `Monto_pago` INT NULL,
+  `Fecha_pago` DATE NULL,
   `Empleados_IdEmpleado` INT NOT NULL,
   `Clientes_idCliente` INT NOT NULL,
   PRIMARY KEY (`IdPago`, `Clientes_idCliente`),
@@ -146,7 +146,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `mydb`.`Login` (
   `IdEmpleados` INT NOT NULL AUTO_INCREMENT,
   `Contrasena` VARCHAR(45) NULL,
-  `Nombre del usuario` VARCHAR(45) NULL,
+  `Nombre_usuario` VARCHAR(45) NULL,
   `Usuarios_IdEmpleado` INT NOT NULL,
   PRIMARY KEY (`IdEmpleados`),
   INDEX `fk_Login_Usuarios1_idx` (`Usuarios_IdEmpleado` ASC),
@@ -158,5 +158,13 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Login` (
 ENGINE = InnoDB;
 
 
-ALTER TABLE `mydb`.`cobro de mensualidad` 
-RENAME TO  `mydb`.`cobro_ mensualidad` ;
+
+
+
+ALTER TABLE `mydb`.`venta` 
+DROP COLUMN `IdVenta`;
+
+
+
+ALTER TABLE `mydb`.`cobro_mensualidad` 
+CHANGE COLUMN `IdPago` `IdPago` INT(11) NOT NULL AUTO_INCREMENT ;
