@@ -158,3 +158,5 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Login` (
 ENGINE = InnoDB;
 
 
+ALTER TABLE `mydb`.`cobro de mensualidad` 
+RENAME TO  `mydb`.`cobro_ mensualidad` ;
