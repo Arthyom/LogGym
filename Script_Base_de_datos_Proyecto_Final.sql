@@ -302,5 +302,7 @@ INSERT INTO `GYM`.`cobro_mensualidad` (`MontoAPagar`, `Fecha_Pago`, `IdEmpleado`
 
 INSERT INTO `GYM`.`cobro_mensualidad` (`MontoAPagar`, `Fecha_Pago`, `IdEmpleado`, `IdCliente`) VALUES ('350', '2018-06-03', '2', '4');
 
+
 ALTER TABLE `gym`.`inventario` DROP COLUMN `NombreProducto` ;
 ALTER TABLE `gym`.`inventario` DROP COLUMN `Fecha_Reeprovicionar` ;
+ALTER TABLE `gym`.`usuarios` ADD COLUMN `Password` VARCHAR(45) NOT NULL  AFTER `Labor` ;
