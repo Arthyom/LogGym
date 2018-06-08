@@ -11,7 +11,7 @@ using System.Windows.Forms;
 using Gma.QrCodeNet.Encoding;
 using Gma.QrCodeNet.Encoding.Windows.Render;
 
-//using AForge.Video;
+using AForge.Video;
 //using AForge.Video.DirectShow;
 
 using BarcodeLib.BarcodeReader;
@@ -26,7 +26,7 @@ namespace ProyectoLogGym
     public partial class Form1 : Form
     {
        // private FilterInfoCollection DispositivosVideo;
-        //private VideoCaptureDevice VideoFinal;
+       //private VideoCaptureDevice VideoFinal;
 
         private Conexion conActual = new Conexion("localhost", "3306", "root", "", "mydb");
        
@@ -45,9 +45,10 @@ namespace ProyectoLogGym
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // preparar para capturar video 
-          //  this.DispositivosVideo = new FilterInfoCollection(FilterCategory.VideoInputDevice);
-           // this.VideoFinal        = new VideoCaptureDevice();
+           //preparar para capturar video 
+           /*
+           this.DispositivosVideo = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+           this.VideoFinal        = new VideoCaptureDevice();*/
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
@@ -58,7 +59,7 @@ namespace ProyectoLogGym
         // cuando el formulario se este cerrando
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-           // if (this.VideoFinal.IsRunning == true) this.VideoFinal.Stop();
+          // if (this.VideoFinal.IsRunning == true) this.VideoFinal.Stop();
             Application.Exit();
         }
 
@@ -116,7 +117,7 @@ namespace ProyectoLogGym
 
 
                         // crear una consulta para buscar nombre e identificador
-                        string orden = " WHERE `Nombre del usuario`='" + sli[0] + "' and Contrasena ='" + sli[1] + "'";
+                        string orden = " WHERE `Nombre_usuario`='" + sli[0] + "' and Contrasena ='" + sli[1] + "'";
                     }
                     
                 }

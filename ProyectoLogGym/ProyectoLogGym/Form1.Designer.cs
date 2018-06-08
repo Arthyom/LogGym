@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("Nombre");
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("Precio");
+            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("Nombre");
+            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("Precio");
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.videoSourcePlayer2 = new AForge.Controls.VideoSourcePlayer();
             this.label3 = new System.Windows.Forms.Label();
@@ -79,6 +79,8 @@
             // 
             // videoSourcePlayer2
             // 
+            this.videoSourcePlayer2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.videoSourcePlayer2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.videoSourcePlayer2.Location = new System.Drawing.Point(0, 103);
             this.videoSourcePlayer2.Name = "videoSourcePlayer2";
@@ -126,6 +128,8 @@
             // 
             // button1
             // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.button1.Location = new System.Drawing.Point(0, 465);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(272, 62);
@@ -165,6 +169,8 @@
             // 
             // textBox3
             // 
+            this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.textBox3.Location = new System.Drawing.Point(130, 437);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(172, 20);
@@ -172,6 +178,8 @@
             // 
             // label6
             // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.label6.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.label6.Location = new System.Drawing.Point(0, 435);
             this.label6.Name = "label6";
@@ -182,6 +190,8 @@
             // 
             // textBox2
             // 
+            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.textBox2.Location = new System.Drawing.Point(130, 415);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(172, 20);
@@ -189,6 +199,8 @@
             // 
             // textBox1
             // 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.textBox1.Location = new System.Drawing.Point(130, 392);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(172, 20);
@@ -197,6 +209,8 @@
             // 
             // label5
             // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.label5.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.label5.Location = new System.Drawing.Point(0, 412);
             this.label5.Name = "label5";
@@ -207,6 +221,8 @@
             // 
             // label4
             // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.label4.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.label4.Location = new System.Drawing.Point(0, 389);
             this.label4.Name = "label4";
@@ -217,6 +233,8 @@
             // 
             // button3
             // 
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.button3.Location = new System.Drawing.Point(154, 465);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(148, 62);
@@ -226,6 +244,8 @@
             // 
             // button2
             // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.button2.Location = new System.Drawing.Point(0, 465);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(148, 62);
@@ -235,14 +255,15 @@
             // 
             // listView1
             // 
+            this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.listView1.CheckBoxes = true;
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
-            listViewItem3.StateImageIndex = 0;
-            listViewItem4.StateImageIndex = 0;
+            listViewItem7.StateImageIndex = 0;
+            listViewItem8.StateImageIndex = 0;
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem3,
-            listViewItem4});
+            listViewItem7,
+            listViewItem8});
             this.listView1.Location = new System.Drawing.Point(0, 65);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(302, 321);
@@ -261,6 +282,8 @@
             // 
             // tabControl1
             // 
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
@@ -268,7 +291,7 @@
             this.tabControl1.Location = new System.Drawing.Point(588, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(665, 527);
+            this.tabControl1.Size = new System.Drawing.Size(598, 527);
             this.tabControl1.TabIndex = 2;
             // 
             // tabPage1
@@ -276,9 +299,9 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(657, 501);
+            this.tabPage1.Size = new System.Drawing.Size(607, 501);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "ModuloAdministracionProductos";
+            this.tabPage1.Text = "Administracion Productos";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // tabPage2
@@ -286,27 +309,27 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(657, 501);
+            this.tabPage2.Size = new System.Drawing.Size(607, 501);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "ModuloAdministracionProveedores";
+            this.tabPage2.Text = "Administracion Proveedores";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // tabPage3
             // 
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(657, 501);
+            this.tabPage3.Size = new System.Drawing.Size(607, 501);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "ModuloAdministracionClientes";
+            this.tabPage3.Text = "Administracion Clientes";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // tabPage4
             // 
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(657, 501);
+            this.tabPage4.Size = new System.Drawing.Size(590, 501);
             this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "ModuloAdministracionMembrecias";
+            this.tabPage4.Text = "Administracion Membrecias";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // timer1
@@ -317,11 +340,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1253, 531);
+            this.ClientSize = new System.Drawing.Size(1194, 531);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.MaximumSize = new System.Drawing.Size(1210, 569);
+            this.MinimumSize = new System.Drawing.Size(1210, 569);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);

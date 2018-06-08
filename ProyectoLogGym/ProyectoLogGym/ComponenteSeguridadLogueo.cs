@@ -30,7 +30,7 @@ namespace ProyectoLogGym
 
             // leer el resultado de la consulta y agregar al combo
             while (consulta.Read())
-                this.comboBox1.Items.Add(consulta["Nombre del usuario"]);
+                this.comboBox1.Items.Add(consulta["Nombre_usuario"]);
 
             Cn1.conexionConServidor.Close();
         }
@@ -41,7 +41,7 @@ namespace ProyectoLogGym
             string pas = this.textBox1.Text;
             string usr = this.comboBox1.Text;
 
-            string consultaCriterio = " WHERE `Nombre del usuario`='" + usr + "' and Contrasena ='" + pas+"'";
+            string consultaCriterio = " WHERE `Nombre_usuario`='" + usr + "' and Contrasena ='" + pas+"'";
 
             // hacer una consulta selec compuesta 
             Cn1.conexionConServidor.Open();

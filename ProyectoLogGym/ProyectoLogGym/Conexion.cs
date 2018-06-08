@@ -49,35 +49,33 @@ namespace ProyectoLogGym
 
         public MySqlDataReader ConsultaSelectAllCompuesta(string tableName, string criteria)
         {
-            string Consulta = "SELECT * FROM " + tableName + " "+ criteria +  " ;";
+            string Consulta = "SELECT * FROM " + tableName +" "+ criteria +  " ;";
             this.comando = new MySqlCommand(Consulta, this.conexionConServidor);
 
             MySqlDataReader lector = this.comando.ExecuteReader();
             return lector;
         }
-        public int ConsultaGuardar(string tableName, string consulta)
+        public void ConsultaGuardar(string tableName, string consulta)
         {
-            string Consulta = "INSERT INTO "+ tableName + " "+consulta;
+            string Consulta = "INSERT INTO "+ tableName + consulta;
             this.comando = new MySqlCommand(Consulta, this.conexionConServidor);
-            return this.comando.ExecuteNonQuery();
 
+            comando.ExecuteReader();
         }
 
-        public void ConsultaEliminar(string tableName, string condicion)
+        public void ConsultaEliminar(string tabalaName, string condicion)
         {
-            string Consulta = "DELETE FROM  "+tableName+" WHERE "+condicion+";";
+            string Consulta = ("DELETE FROM "+tabalaName+" WHERE "+condicion+"; ");
             this.comando = new MySqlCommand(Consulta, this.conexionConServidor);
-
-            this.comando.ExecuteNonQuery();
-            
+            comando.ExecuteReader();
         }
 
         public void llenarGridV(string tableName, DataGridView DG )
         {
-            string Consulta = "SELECT Nombre del producto, Cantidad en almacen FROM " + tableName +  "; ";
+            string Consulta = "SELECT IdProducto,Nombre_producto, Precio_producto FROM " + tableName +  "; ";
             this.comando = new MySqlCommand(Consulta, this.conexionConServidor);
             MySqlDataAdapter da = new MySqlDataAdapter(comando);
-            DataTable dt = new DataTable();
+            DataTable dt = new DataTable();            
             da.Fill(dt);
             DG.DataSource = dt;
         }
