@@ -15,7 +15,7 @@ namespace ProyectoLogGym
     public partial class ComponenteSeguridadLogueo : Form
     {
         // crear una nueva conexion cuando se abre el form
-        Conexion Cn1 = new Conexion("localhost", "3306", "root", "", "mydb");
+        Conexion Cn1 = new Conexion("localhost", "3306", "root", "", "GYM");
 
         public ComponenteSeguridadLogueo()
         {
@@ -26,11 +26,11 @@ namespace ProyectoLogGym
         {
             // traer todos los registros de la tabla login
             Cn1.conexionConServidor.Open();
-            MySqlDataReader consulta = Cn1.ConsultaSelectAllFrom("login");
+            MySqlDataReader consulta = Cn1.ConsultaSelectAllFrom("Usuarios");
 
             // leer el resultado de la consulta y agregar al combo
             while (consulta.Read())
-                this.comboBox1.Items.Add(consulta["Nombre_usuario"]);
+                this.comboBox1.Items.Add(consulta["NombreEmpleado"]);
 
             Cn1.conexionConServidor.Close();
         }
@@ -41,11 +41,11 @@ namespace ProyectoLogGym
             string pas = this.textBox1.Text;
             string usr = this.comboBox1.Text;
 
-            string consultaCriterio = " WHERE `Nombre_usuario`='" + usr + "' and Contrasena ='" + pas+"'";
+            string consultaCriterio = " WHERE `NombreEmpleado`='" + usr + "' and `Password` ='" + pas+"'";
 
             // hacer una consulta selec compuesta 
             Cn1.conexionConServidor.Open();
-            MySqlDataReader consulta = Cn1.ConsultaSelectAllCompuesta("login", consultaCriterio);
+            MySqlDataReader consulta = Cn1.ConsultaSelectAllCompuesta("`Usuarios`", consultaCriterio);
 
             if (consulta.HasRows)
             {

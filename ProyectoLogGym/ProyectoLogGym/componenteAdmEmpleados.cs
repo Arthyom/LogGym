@@ -12,7 +12,7 @@ namespace ProyectoLogGym
 {
     public partial class componenteAdmEmpleados : UserControl
     {
-        Conexion Cn1 = new Conexion("localhost", "3306", "root", "", "mydb");
+        Conexion Cn1 = new Conexion("localhost", "3306", "root", "", "GYM");
         public componenteAdmEmpleados()
         {
             InitializeComponent();
@@ -96,7 +96,7 @@ namespace ProyectoLogGym
         {
 
 
-            string Consulta = "SELECT * FROM usuarios; ";
+            string Consulta = "SELECT idEmpleado, NombreEmpleado, FROM usuarios; ";
             Cn1.conexionConServidor.Open();
             Cn1.llenarGridV(Consulta, dataGridView1);
             Cn1.conexionConServidor.Close();

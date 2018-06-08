@@ -14,7 +14,7 @@ namespace ProyectoLogGym
     public partial class componenteAdmProducto : UserControl
     {
 
-        Conexion Cn1 = new Conexion("localhost", "3306", "root", "", "mydb");
+        Conexion Cn1 = new Conexion("localhost", "3306", "root", "", "GYM");
         public componenteAdmProducto()
         {
             InitializeComponent();
@@ -38,13 +38,13 @@ namespace ProyectoLogGym
 
             //string consulta = " VALUES ('" + txtNombreAdd.Text + "'," + Int32.Parse(txtPrecio.Text) + ",1);";
 
-            string consulta = " (Nombre_producto,Precio_producto, Inventario_IdProducto) VALUES('" + txtNombreAdd.Text + "'," + Int32.Parse(txtPrecio.Text) + ",2);";
+            string consulta = " (Nombre_producto,PresioUnitario) VALUES('" + txtNombreAdd.Text + "'," + Int32.Parse(txtPrecio.Text) + ");";
             if (txtNombreAdd.Text != string.Empty || txtPrecio.Text != string.Empty)
             {
                 Cn1.conexionConServidor.Open();
                 try
                 {
-                    Cn1.ConsultaGuardar("productos", consulta);
+                    Cn1.ConsultaGuardar("Productos", consulta);
                 }
                 catch (Exception)
                 {
@@ -65,13 +65,13 @@ namespace ProyectoLogGym
         private void btnEliminar_Click(object sender, EventArgs e)
         {
 
-            string consulta = " IdProducto ='" +txtNombreDel.Text+"'";
+            string consulta = " idProducto ='" + txtNombreDel.Text+"'";
             if (txtNombreDel.Text != string.Empty && Int32.TryParse(txtNombreDel.Text, out int i))
             {
                 Cn1.conexionConServidor.Open();
                 try
                 {
-                    Cn1.ConsultaEliminar("productos", "IdProducto =" + Int32.Parse(txtNombreDel.Text));
+                    Cn1.ConsultaEliminar("Productos", "IdProducto =" + Int32.Parse(txtNombreDel.Text));
 
                 }
                 catch (Exception)
@@ -95,7 +95,7 @@ namespace ProyectoLogGym
         private void grid() {
 
 
-            string Consulta = "SELECT IdProducto,Nombre_producto, Precio_producto FROM productos; ";
+            string Consulta = "SELECT idProducto,Nombre_producto,PresioUnitario FROM Productos; ";
             Cn1.conexionConServidor.Open();
             Cn1.llenarGridV(Consulta, dataGridView1);
             Cn1.conexionConServidor.Close();
