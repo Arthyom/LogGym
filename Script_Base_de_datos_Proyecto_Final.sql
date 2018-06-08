@@ -307,3 +307,5 @@ INSERT INTO `GYM`.`cobro_mensualidad` (`MontoAPagar`, `Fecha_Pago`, `IdEmpleado`
 INSERT INTO `GYM`.`cobro_mensualidad` (`MontoAPagar`, `Fecha_Pago`, `IdEmpleado`, `IdCliente`) VALUES ('350', '2018-06-03', '2', '1');
 
 INSERT INTO `GYM`.`cobro_mensualidad` (`MontoAPagar`, `Fecha_Pago`, `IdEmpleado`, `IdCliente`) VALUES ('350', '2018-06-03', '2', '4');
+
+ALTER TABLE `gym`.`inventario` DROP COLUMN `NombreProducto` ;
