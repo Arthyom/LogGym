@@ -3,12 +3,6 @@ CREATE DATABASE IF NOT EXISTS GYM;
 use GYM;
 
 
-DROP USER 'administrador'@ 'localhost:2000';
-
-CREATE USER 'administrador'@ 'localhost:2000' IDENTIFIED BY 'Juan_Carlos';
-
-GRANT ALL ON GYM.* TO 'administrador'@ 'localhost:2000';
-
 CREATE  TABLE `gym`.`Clientes` (
   
 	`idClientes` INT NOT NULL AUTO_INCREMENT ,
@@ -309,3 +303,4 @@ INSERT INTO `GYM`.`cobro_mensualidad` (`MontoAPagar`, `Fecha_Pago`, `IdEmpleado`
 INSERT INTO `GYM`.`cobro_mensualidad` (`MontoAPagar`, `Fecha_Pago`, `IdEmpleado`, `IdCliente`) VALUES ('350', '2018-06-03', '2', '4');
 
 ALTER TABLE `gym`.`inventario` DROP COLUMN `NombreProducto` ;
+ALTER TABLE `gym`.`inventario` DROP COLUMN `Fecha_Reeprovicionar` ;
