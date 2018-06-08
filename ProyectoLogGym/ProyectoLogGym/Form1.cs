@@ -36,7 +36,7 @@ namespace ProyectoLogGym
         {
             InitializeComponent();
             tabPage1.Controls.Add(new componenteAdmProducto());
-            tabPage3.Controls.Add(new componenteAdmClientes());
+            tabPage3.Controls.Add(new componenteAdmEmpleados());
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -50,6 +50,8 @@ namespace ProyectoLogGym
            /*
            this.DispositivosVideo = new FilterInfoCollection(FilterCategory.VideoInputDevice);
            this.VideoFinal        = new VideoCaptureDevice();*/
+
+            
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)

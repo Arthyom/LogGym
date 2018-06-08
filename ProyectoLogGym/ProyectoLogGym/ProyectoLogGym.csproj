@@ -103,6 +103,12 @@
     <Compile Include="componenteAdmClientes.Designer.cs">
       <DependentUpon>componenteAdmClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="componenteAdmEmpleados.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="componenteAdmEmpleados.Designer.cs">
+      <DependentUpon>componenteAdmEmpleados.cs</DependentUpon>
+    </Compile>
     <Compile Include="componenteAdmProducto.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -132,6 +138,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="componenteAdmClientes.resx">
       <DependentUpon>componenteAdmClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="componenteAdmEmpleados.resx">
+      <DependentUpon>componenteAdmEmpleados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="componenteAdmProducto.resx">
       <DependentUpon>componenteAdmProducto.cs</DependentUpon>

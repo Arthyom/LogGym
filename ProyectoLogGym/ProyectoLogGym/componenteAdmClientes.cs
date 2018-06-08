@@ -65,7 +65,7 @@ namespace ProyectoLogGym
         {
 
 
-            string Consulta = "SELECT * FROM clientes; ";
+            string Consulta = "SELECT * FROM productos; ";
             Cn1.conexionConServidor.Open();
             Cn1.llenarGridV(Consulta, this.dataGridView1);
             Cn1.conexionConServidor.Close();
