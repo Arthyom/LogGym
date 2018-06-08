@@ -95,9 +95,9 @@ namespace ProyectoLogGym
         private void grid() {
 
 
-
+            string Consulta = "SELECT IdProducto,Nombre_producto, Precio_producto FROM productos; ";
             Cn1.conexionConServidor.Open();
-            Cn1.llenarGridV("productos", dataGridView1);
+            Cn1.llenarGridV(Consulta, dataGridView1);
             Cn1.conexionConServidor.Close();
             dataGridView1.Columns[0].HeaderText = "ID";
             dataGridView1.Columns[1].HeaderText = "Nombre";

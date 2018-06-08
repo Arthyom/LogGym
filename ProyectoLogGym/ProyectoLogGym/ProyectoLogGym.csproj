@@ -97,6 +97,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="componenteAdmClientes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="componenteAdmClientes.Designer.cs">
+      <DependentUpon>componenteAdmClientes.cs</DependentUpon>
+    </Compile>
     <Compile Include="componenteAdmProducto.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -124,6 +130,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="componenteAdmClientes.resx">
+      <DependentUpon>componenteAdmClientes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="componenteAdmProducto.resx">
       <DependentUpon>componenteAdmProducto.cs</DependentUpon>
     </EmbeddedResource>

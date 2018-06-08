@@ -36,6 +36,7 @@ namespace ProyectoLogGym
         {
             InitializeComponent();
             tabPage1.Controls.Add(new componenteAdmProducto());
+            tabPage3.Controls.Add(new componenteAdmClientes());
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)

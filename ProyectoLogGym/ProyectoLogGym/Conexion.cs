@@ -70,10 +70,10 @@ namespace ProyectoLogGym
             comando.ExecuteReader();
         }
 
-        public void llenarGridV(string tableName, DataGridView DG )
+        public void llenarGridV(string consulta,  DataGridView DG )
         {
-            string Consulta = "SELECT IdProducto,Nombre_producto, Precio_producto FROM " + tableName +  "; ";
-            this.comando = new MySqlCommand(Consulta, this.conexionConServidor);
+           
+            this.comando = new MySqlCommand(consulta, this.conexionConServidor);
             MySqlDataAdapter da = new MySqlDataAdapter(comando);
             DataTable dt = new DataTable();            
             da.Fill(dt);

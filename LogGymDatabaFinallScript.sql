@@ -56,7 +56,6 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Venta` (
   `IdProducto` INT NOT NULL,
-  `IdVenta` INT NOT NULL,
   `Nombre_producto` VARCHAR(45) NOT NULL,
   `Cantidad` INT NULL,
   `Fecha` DATE NULL,
@@ -69,7 +68,6 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Venta` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
 
 -- -----------------------------------------------------
 -- Table `mydb`.`Venta_has_Productos`
@@ -114,11 +112,12 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Clientes` (
 ENGINE = InnoDB;
 
 
+
 -- -----------------------------------------------------
 -- Table `mydb`.`Cobro de mensualidad`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Cobro_mensualidad` (
-  `IdPago` INT NOT NULL,
+  `IdPago` INT NOT NULL AUTO_INCREMENT,
   `Nombre_cliente` VARCHAR(45) NOT NULL,
   `Monto_pago` INT NULL,
   `Fecha_pago` DATE NULL,
@@ -157,14 +156,3 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Login` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-
-
-
-
-ALTER TABLE `mydb`.`venta` 
-DROP COLUMN `IdVenta`;
-
-
-
-ALTER TABLE `mydb`.`cobro_mensualidad` 
-CHANGE COLUMN `IdPago` `IdPago` INT(11) NOT NULL AUTO_INCREMENT ;
