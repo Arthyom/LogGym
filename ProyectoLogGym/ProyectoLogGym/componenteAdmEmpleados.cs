@@ -96,7 +96,7 @@ namespace ProyectoLogGym
         {
 
 
-            string Consulta = "SELECT idEmpleado, NombreEmpleado, FROM usuarios; ";
+            string Consulta = "SELECT idEmpleado, NombreEmpleado,Horario_trabajo,Labor FROM usuarios; ";
             Cn1.conexionConServidor.Open();
             Cn1.llenarGridV(Consulta, dataGridView1);
             Cn1.conexionConServidor.Close();
