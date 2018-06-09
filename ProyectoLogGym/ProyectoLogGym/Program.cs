@@ -16,14 +16,9 @@ namespace ProyectoLogGym
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            try
-            {
-                Application.Run(new Form1());
-            }
-            catch(InvalidOperationException ex)
-            {
-                ;
-            }
+         
+                Application.Run(new ComponenteSeguridadLogueo());
+           
         }
     }
 }

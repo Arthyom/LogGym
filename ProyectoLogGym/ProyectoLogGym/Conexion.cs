@@ -47,13 +47,27 @@ namespace ProyectoLogGym
 
         public MySqlDataReader ConsultaSelectAllCompuesta(string tableName, string criteria)
         {
-            string Consulta = "SELECT * FROM " + tableName + " "+ criteria +  " ;";
-            this.comando = new MySqlCommand(Consulta, this.conexionConServidor);
+            try
+            {
+                string Consulta = "SELECT * FROM " + tableName + " " + criteria + " ;";
+                this.comando = new MySqlCommand(Consulta, this.conexionConServidor);
 
-            MySqlDataReader lector = this.comando.ExecuteReader();
-            return lector;
+                MySqlDataReader lector = this.comando.ExecuteReader();
+                return lector;
+            }
+            catch(Exception exp)
+            {
+                ;
+            }
+            return null;
         }
 
+        public void            UpdateGenericTable (string tableName, string criteria)
+        {
+            string consulta = "UPDATE "+ tableName + " SET "+ criteria;
+            this.comando = new MySqlCommand(consulta, this.conexionConServidor);
+            this.comando.ExecuteNonQuery();
+        }
 
 
     }

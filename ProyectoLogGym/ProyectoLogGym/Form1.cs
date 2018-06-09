@@ -28,9 +28,12 @@ namespace ProyectoLogGym
         private FilterInfoCollection DispositivosVideo;
         private VideoCaptureDevice VideoFinal;
 
-        private Conexion conActual = new Conexion("localhosto", "3306", "root", "", "mydb");
-       
-        
+        // crear varias conexiones para realizar mas de una consulta a la vez
+        private Conexion conActual = new Conexion("localhost", "3306", "root", "", "gym");
+        private Conexion conActual2 = new Conexion("localhost", "3306", "root", "", "gym");
+        private Conexion conActual3 = new Conexion("localhost", "3306", "root", "", "gym");
+
+
 
         public Form1()
         {
@@ -47,7 +50,22 @@ namespace ProyectoLogGym
             // preparar para capturar video 
             this.DispositivosVideo = new FilterInfoCollection(FilterCategory.VideoInputDevice);
             this.VideoFinal        = new VideoCaptureDevice();
-            
+
+            Fill_Products();
+        }
+
+        private void Fill_Products()
+        {
+            // conseguir todos los productos y llenar el combo de productos
+            this.conActual.conexionConServidor.Open();
+            this.conActual2.conexionConServidor.Open();
+            MySqlDataReader lectr2 = this.conActual2.ConsultaSelectAllFrom("productos");
+            MySqlDataReader lectr = this.conActual.ConsultaSelectAllFrom("inventario");
+            while ( lectr2.Read() && lectr.Read() )
+                if(Convert.ToInt32( lectr[2]) > 0 )
+                    this.comboBox1.Items.Add(lectr2["Nombre_producto"]);
+            this.conActual2.conexionConServidor.Close();
+            this.conActual.conexionConServidor.Close();
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
@@ -109,15 +127,32 @@ namespace ProyectoLogGym
                 {
                     if (resultado.Length != 3)
                     {
-                        string res = resultado[0];
-                        string[] sli = res.Split(' ');
+                        try
+                        {                     
+                            string res = resultado[0];
+                            string[] sli = res.Split(' ');
 
+                            // crear una consulta para buscar nombre e identificador
+                            // verificar que el cliente exista en la base de datos
+                            this.conActual.conexionConServidor.Open();
+                            MySqlDataReader r = this.conActual.ConsultaSelectAllCompuesta("clientes", " WHERE idCliente = " + sli[1] + " ");
+                            
+                            if (r.HasRows)
+                            {
+                                label8.Text = "Aceptado";
+                                label8.BackColor = Color.Green;
+                            }
+                            else
+                            {
+                                label8.Text = "Rechazado";
+                                label8.BackColor = Color.Red;
+                            }
 
-
-                        // crear una consulta para buscar nombre e identificador
-                        string orden = " WHERE `Nombre del usuario`='" + sli[0] + "' and Contrasena ='" + sli[1] + "'";
+                            this.conActual.conexionConServidor.Close();
+                        }
+                        catch (Exception ex) {; }
                     }
-                    
+
                 }
             }
         }
@@ -175,5 +210,154 @@ namespace ProyectoLogGym
         {
             this.button1_Click(sender,e);
         }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // agregar datos del campo a la lista de venta
+            this.listView1.Items.Add(this.comboBox1.Text);
+        }
+
+        private void comboBox1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        // cuando el valor del combo sea cambiado
+        private void comboBox1_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            // conseguir valor de la caja de texto
+            this.conActual.conexionConServidor.Open();
+            this.conActual2.conexionConServidor.Open();
+
+            MySqlDataReader lector = this.conActual.ConsultaSelectAllCompuesta("productos", " WHERE Nombre_producto = '" + comboBox1.Text + "'");
+  
+
+            if ( lector.HasRows && lector.Read() )
+            {
+                MySqlDataReader lector2 = this.conActual2.ConsultaSelectAllCompuesta("inventario", " WHERE idProducto = " + lector[0].ToString() + "");
+                if(lector2.HasRows && lector2.Read() && Convert.ToUInt32(lector2["Cantidad_En_Almacen"]) > 0)
+                {
+                    //conseguir la informacion del item seleccionado
+                    ListViewItem nuevoItem = new ListViewItem(lector["Nombre_producto"].ToString());
+                    nuevoItem.SubItems.Add(lector["PresioUnitario"].ToString());
+                    nuevoItem.SubItems.Add("1");
+
+                    listView1.Items.Add(nuevoItem);
+                }
+            }
+            this.conActual.conexionConServidor.Close();
+            this.conActual2.conexionConServidor.Close();
+
+            this.textBox1.Text = calcular().ToString();
+        }
+
+        private void listView1_ItemChecked(object sender, ItemCheckedEventArgs e)
+        {
+            if (e.Item.Checked)
+            {
+                listView1.Items.Remove(e.Item);
+                this.textBox1.Text = calcular().ToString();
+            }
+        }
+
+        private double calcular()
+        {
+            double total = 0;
+            // recorrer el listado en buscar de los precios
+            foreach( ListViewItem it in this.listView1.Items)         
+                total += Convert.ToDouble(it.SubItems[1].Text);
+            return total;
+        }
+
+        private void listView1_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        // calcular el cambio
+        private void textBox2_Leave(object sender, EventArgs e)
+        {
+            if( this.textBox2.Text != "")
+                this.textBox3.Text = ( Convert.ToDouble(textBox2.Text) - Convert.ToDouble(textBox1.Text) ).ToString();
+            
+        }
+
+        // vender todos los productos agregados a las lista
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            
+           
+            
+            foreach ( ListViewItem it in listView1.Items )
+            {
+                // verificar que el producto seleccionado exista en la base de datos 
+                this.conActual2.conexionConServidor.Open();
+                this.conActual.conexionConServidor.Open();
+                MySqlDataReader rd  = this.conActual.ConsultaSelectAllCompuesta("productos",   "WHERE Nombre_producto ='" + it.SubItems[0].Text+"'");
+                
+
+                if ( rd.HasRows && rd.Read() )
+                {
+                    MySqlDataReader rd2 = this.conActual2.ConsultaSelectAllCompuesta("inventario", "WHERE idProducto      = " + rd[0].ToString() + " ");
+                    if ( rd2.HasRows && rd2.Read() )
+                    {                    
+                        // actualizar la existencia del producto
+                        string s = "Cantidad_En_Almacen =" + (Convert.ToUInt32(rd2[2]) - 1) + " WHERE idProducto= " + Convert.ToUInt32(rd2[1]);
+                        this.conActual3.conexionConServidor.Open();
+                        this.conActual3.UpdateGenericTable("inventario", s);
+                        this.conActual3.conexionConServidor.Close();
+                    }
+                }
+
+                this.conActual.conexionConServidor.Close();
+                this.conActual2.conexionConServidor.Close();
+            }
+            
+           
+            
+
+            this.comboBox1.Items.Clear();
+            this.listView1.Items.Clear();
+            this.Fill_Products();
+        }
+
+        // cuando se pulse el boton de registrar
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            // verificar que el cliente exista en la base de datos
+            this.conActual.conexionConServidor.Open();
+            MySqlDataReader r = this.conActual.ConsultaSelectAllCompuesta("clientes", " WHERE idCliente = " + textBox4.Text + " ");
+
+            try
+            {
+                if (r.HasRows)
+                {
+                    this.label1.Text = "Aceptado";
+                    this.label1.BackColor = Color.Green;
+                }
+                else
+                {
+                    this.label1.Text = "Rechazado";
+                    this.label1.BackColor = Color.Red;
+                }
+            }
+            catch( Exception ex)
+            {
+                ;
+            }
+
+            this.conActual.conexionConServidor.Close();
+        }
+
     }
 }
